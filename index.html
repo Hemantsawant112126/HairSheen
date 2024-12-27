@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HairSheen - Shine From Within</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HairSheen</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#payment">Payment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h2>"Shine From Within"</h2>
+        <p>Natural, science-backed hair solutions for your best hair.</p>
+        <a href="#products" class="cta-btn">Shop Now</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About HairSheen</h2>
+        <p>At HairSheen, we focus on delivering natural, science-backed hair solutions for healthier, shinier hair. Our products are designed to tackle dandruff and promote hair regrowth, combining nature with the latest scientific innovations.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        
+        <!-- Dandruff Solution -->
+        <div class="product">
+            <h3>Dandruff Solution</h3>
+            <p>Our Ketoconazole-based shampoo comes in two variations, 2% for intense dandruff treatment, and 1% for mild daily use. Suitable for all hair types.</p>
+        </div>
+        
+        <!-- Serum for Hair Regrowth -->
+        <div class="product">
+            <h3>Serum for Hair Regrowth</h3>
+            <p>Minoxidil-based serum, available in 2% for women and 5% for men, enriched with biotin and peptides for maximum effectiveness in hair regrowth.</p>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="payment">
+        <h2>Checkout</h2>
+        <form id="payment-form">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+            
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" name="expiryDate" required>
+            
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HairSheen. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
