@@ -1,4 +1,4 @@
-/* General Reset */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,95 +7,50 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #f4f4f4;
 }
 
 header {
-    background-color: #663399;
-    color: #fff;
-    padding: 20px;
+    background-color: #333;
+    padding: 1rem;
+}
+
+header nav ul {
+    list-style: none;
     text-align: center;
 }
 
-header h1 {
-    font-size: 2.5em;
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
 }
 
-header nav {
-    margin-top: 10px;
-}
-
-header nav a {
-    color: #fff;
-    margin: 0 15px;
+header nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 1.2em;
 }
 
-header nav a:hover {
-    text-decoration: underline;
-}
-
-.product-section {
+.hero {
+    background-color: #ff9b9b;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px;
 }
 
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.product {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-    padding: 20px;
-    margin: 20px;
-}
-
-.product img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.product h3 {
-    margin-top: 10px;
-    font-size: 1.5em;
-}
-
-.product p {
-    font-size: 1.1em;
-    margin-top: 10px;
-}
-
-.product .buy-now {
-    background-color: #FFD700;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    margin-top: 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.product .buy-now:hover {
-    background-color: #ffa500;
+.product-card {
+    background: white;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: #663399;
-    color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    background-color: #333;
+    color: white;
 }
