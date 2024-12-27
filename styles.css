@@ -1,148 +1,101 @@
-/* General Styling */
-body {
-    font-family: 'Montserrat', sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #F5F5F5;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     color: #333;
 }
 
-/* Header Styling */
 header {
-    background-color: #663399; /* Deep Purple */
-    color: #FFD700; /* Gold */
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-header .logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-}
-
-header nav ul {
-    list-style-type: none;
-    display: flex;
-}
-
-header nav ul li {
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: #FFD700;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Banner Section */
-.banner {
-    background-color: #9CAF88; /* Sage Green */
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.banner h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-}
-
-.banner p {
-    font-size: 1.2rem;
-}
-
-.cta-btn {
-    background-color: #FFD700; /* Gold */
-    color: #663399; /* Deep Purple */
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-/* About Section */
-.about {
-    padding: 40px 20px;
+    background-color: #663399;
+    color: #fff;
+    padding: 20px;
     text-align: center;
 }
 
-.about h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #663399;
+header h1 {
+    font-size: 2.5em;
 }
 
-/* Products Section */
-.products {
-    display: flex;
-    justify-content: space-around;
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.product-section {
+    text-align: center;
     padding: 40px 20px;
-    background-color: #fff;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 
 .product {
-    width: 45%;
-    background-color: #F5F5F5;
-    padding: 20px;
+    background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
     text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .product h3 {
-    color: #663399;
+    margin-top: 10px;
+    font-size: 1.5em;
 }
 
-/* Payment Section */
-.payment {
-    background-color: #F5F5F5;
-    padding: 40px 20px;
-    text-align: center;
+.product p {
+    font-size: 1.1em;
+    margin-top: 10px;
 }
 
-.payment h2 {
-    color: #663399;
-}
-
-.payment form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.payment form input {
-    padding: 10px;
-    width: 250px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.payment form button {
-    background-color: #663399; /* Deep Purple */
-    color: #FFD700; /* Gold */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.payment form button:hover {
+.product .buy-now {
     background-color: #FFD700;
-    color: #663399;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-/* Footer Styling */
+.product .buy-now:hover {
+    background-color: #ffa500;
+}
+
 footer {
     background-color: #663399;
     color: white;
     text-align: center;
     padding: 20px;
-}
-
-footer .social-media a {
-    margin: 0 10px;
-    color: #FFD700;
-    text-decoration: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
