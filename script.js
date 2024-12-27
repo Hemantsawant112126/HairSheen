@@ -1,73 +1,72 @@
-// Load required modules
 const express = require('express');
-const stripe = require('stripe')('sk_test_YOUR_SECRET_KEY'); // Replace with your Stripe secret key
-const ejs = require('ejs');
-const path = require('path');
+const bodyParser = require('body-parser');
+const paytmchecksum = require('paytmchecksum');
 const dotenv = require('dotenv');
 
-// Load environment variables from .env file
+// Initialize dotenv
 dotenv.config();
 
-// Initialize Express app
 const app = express();
-const PORT = 3000;
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Middleware
-app.use(express.static('public')); // Serve static files like CSS and images
-app.use(express.json()); // For parsing application/json
-app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+// Paytm Credentials from your Paytm Merchant Account
+const paytmMerchantKey = process.env.PAYTM_MERCHANT_KEY;
+const paytmMerchantId = process.env.PAYTM_MERCHANT_ID;
+const paytmWebsite = process.env.PAYTM_WEBSITE;
+const paytmIndustryType = process.env.PAYTM_INDUSTRY_TYPE;
 
-// Set EJS as the template engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+// Route to get payment data from the frontend
+app.post('/payment', (req, res) => {
+    const orderId = 'ORDER_' + Date.now(); // Unique Order ID
+    const customerId = req.body.customerId; // Get customer ID from frontend (can be static or dynamic)
 
-// Root route that serves the HTML page
-app.get('/', (req, res) => {
-    res.render('index');
+    const txnAmount = req.body.amount; // Amount to be paid
+    const data = {
+        MID: paytmMerchantId,
+        WEBSITE: paytmWebsite,
+        INDUSTRY_TYPE_ID: paytmIndustryType,
+        CHANNEL_ID: 'WEB',
+        ORDER_ID: orderId,
+        CUST_ID: customerId,
+        TXN_AMOUNT: txnAmount,
+        EMAIL: req.body.email,
+        MOBILE_NO: req.body.mobileNo,
+        CALLBACK_URL: process.env.PAYTM_CALLBACK_URL, // URL to receive payment response
+    };
+
+    // Generate checksum hash
+    paytmchecksum.generateSignature(data, paytmMerchantKey).then((checksum) => {
+        data.CHECKSUMHASH = checksum;
+
+        // Send the data to Paytm
+        res.json({
+            txnData: data,
+        });
+    });
 });
 
-// Route to handle the payment process
-app.post('/create-checkout-session', async (req, res) => {
-    try {
-        // Create a new checkout session using Stripe
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: [
-                {
-                    price_data: {
-                        currency: 'usd',
-                        product_data: {
-                            name: 'HairSheen Product',
-                        },
-                        unit_amount: 5000, // Price in cents ($50)
-                    },
-                    quantity: 1,
-                },
-            ],
-            mode: 'payment',
-            success_url: `http://localhost:${PORT}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `http://localhost:${PORT}/cancel`,
-        });
+// Handle Paytm Callback after transaction
+app.post('/payment/callback', (req, res) => {
+    const response = req.body;
+    const checksum = response.CHECKSUMHASH;
 
-        // Redirect the user to Stripe's checkout page
-        res.redirect(303, session.url);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error creating Stripe session');
+    // Validate checksum
+    const isValidChecksum = paytmchecksum.verifySignature(response, paytmMerchantKey, checksum);
+    
+    if (isValidChecksum) {
+        if (response.STATUS === 'TXN_SUCCESS') {
+            res.send('Payment Successful');
+        } else {
+            res.send('Payment Failed');
+        }
+    } else {
+        res.send('Checksum Mismatch');
     }
 });
 
-// Success page route
-app.get('/success', (req, res) => {
-    res.render('success', { sessionId: req.query.session_id });
-});
-
-// Cancel page route
-app.get('/cancel', (req, res) => {
-    res.render('cancel');
-});
-
 // Start the server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
