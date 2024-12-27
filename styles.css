@@ -1,0 +1,148 @@
+/* General Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #663399; /* Deep Purple */
+    color: #FFD700; /* Gold */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+header .logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Banner Section */
+.banner {
+    background-color: #9CAF88; /* Sage Green */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.banner p {
+    font-size: 1.2rem;
+}
+
+.cta-btn {
+    background-color: #FFD700; /* Gold */
+    color: #663399; /* Deep Purple */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* About Section */
+.about {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #663399;
+}
+
+/* Products Section */
+.products {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.product {
+    width: 45%;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product h3 {
+    color: #663399;
+}
+
+/* Payment Section */
+.payment {
+    background-color: #F5F5F5;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.payment h2 {
+    color: #663399;
+}
+
+.payment form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.payment form input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.payment form button {
+    background-color: #663399; /* Deep Purple */
+    color: #FFD700; /* Gold */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment form button:hover {
+    background-color: #FFD700;
+    color: #663399;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #663399;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer .social-media a {
+    margin: 0 10px;
+    color: #FFD700;
+    text-decoration: none;
+}
