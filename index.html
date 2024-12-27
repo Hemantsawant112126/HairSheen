@@ -1,94 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HairSheen - Hair Care Products</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>HairSheen - Your Ultimate Hair Care</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="logo">
-            <h1>HairSheen</h1>
-            <p>Shine from within</p>
-        </div>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Contact</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- Main Products Section -->
-    <section class="product-section">
-        <h2>Our Best Hair Care Products</h2>
-        <div class="product-container">
-            <!-- Product 1 -->
-            <div class="product">
-                <img src="https://via.placeholder.com/250" alt="HairSheen Shampoo">
-                <h3>HairSheen Shampoo</h3>
-                <p>Natural and effective shampoo for healthy hair.</p>
-                <p><strong>$25.00</strong></p>
-                <form action="/create-checkout-session" method="POST">
-                    <button type="submit" class="buy-now">Buy Now</button>
-                </form>
-            </div>
+    <section class="hero">
+        <h1>Welcome to HairSheen</h1>
+        <p>Elevate Your Hair Care Routine</p>
+        <button><a href="products.html">Shop Now</a></button>
+    </section>
 
-            <!-- Product 2 -->
-            <div class="product">
-                <img src="https://via.placeholder.com/250" alt="HairSheen Conditioner">
-                <h3>HairSheen Conditioner</h3>
-                <p>Moisturizing conditioner for soft and shiny hair.</p>
-                <p><strong>$30.00</strong></p>
-                <form action="/create-checkout-session" method="POST">
-                    <button type="submit" class="buy-now">Buy Now</button>
-                </form>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product">
-                <img src="https://via.placeholder.com/250" alt="Hair Growth Serum">
-                <h3>Hair Growth Serum</h3>
-                <p>Boost hair regrowth with our minoxidil-based serum.</p>
-                <p><strong>$45.00</strong></p>
-                <form action="/create-checkout-session" method="POST">
-                    <button type="submit" class="buy-now">Buy Now</button>
-                </form>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product">
-                <img src="https://via.placeholder.com/250" alt="HairSheen Scalp Treatment">
-                <h3>HairSheen Scalp Treatment</h3>
-                <p>Target dandruff and dry scalp with our nourishing treatment.</p>
-                <p><strong>$40.00</strong></p>
-                <form action="/create-checkout-session" method="POST">
-                    <button type="submit" class="buy-now">Buy Now</button>
-                </form>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product">
-                <img src="https://via.placeholder.com/250" alt="HairSheen Oil">
-                <h3>HairSheen Oil</h3>
-                <p>Infuse your hair with essential oils for shine and nourishment.</p>
-                <p><strong>$35.00</strong></p>
-                <form action="/create-checkout-session" method="POST">
-                    <button type="submit" class="buy-now">Buy Now</button>
-                </form>
-            </div>
+    <section class="featured-products">
+        <h2>Our Best Sellers</h2>
+        <div class="product-grid">
+            <!-- Product cards will be inserted here -->
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 HairSheen. All rights reserved.</p>
+        <p>&copy; 2024 HairSheen. All Rights Reserved.</p>
     </footer>
-
-    <script src="app.js"></script>
 </body>
-
 </html>
